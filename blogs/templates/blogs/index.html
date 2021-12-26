@@ -1,0 +1,18 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}<title>Blog - Página inicial</title>{% endblock %}
+
+{% block content %}
+    <h1>Blog</h1>
+    <hr>
+    <p><a href="{% url 'novo_post' %}">Novo post</a></p>
+    {% for post in posts %}
+        <h2>{{ post.titulo }}</h2>
+        <p> - {{ post.data_add }}</p>
+        <p>{{ post.texto|linebreaks }}</p>
+
+        <p><a href="{% url 'editar_post' post.id %}">Editar publicação</a></p>
+    {% empty %}
+        <p>Não há publicações no blog.</p>
+    {% endfor %}
+{% endblock %}

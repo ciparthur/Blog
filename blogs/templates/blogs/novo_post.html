@@ -1,0 +1,14 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}<title>Blog - Novo post</title>{% endblock %}
+
+{% block content %}
+    <h1>Novo post</h1>
+    <hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <input type="submit" value="Publicar">
+    </form>
+{% endblock %}
