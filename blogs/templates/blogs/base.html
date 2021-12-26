@@ -10,7 +10,14 @@
     <header>
         <nav>
             <p>
-                <a href="{% url 'index' %}">Página inicial</a>
+                <a href="{% url 'index' %}">Página inicial</a> - 
+                {% if user.is_authenticated %}
+                    Olá, {{ user.username }}.
+                    <a href="{% url 'sair' %}">Sair</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a> - 
+                    <a href="{% url 'cadastro' %}">Cadastro</a>
+                {% endif %}
             </p>
         </nav>
     </header>

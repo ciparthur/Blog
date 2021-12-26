@@ -1,0 +1,18 @@
+{% extends 'blogs/base.html' %}
+
+{% block title %}<title>Blog - Login</title>{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+
+    {% if form.errors %}
+        <p>Usuário e senha inválidos. Tente novamente.</p>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Login">
+        <input type="hidden" name="next" value="{% url 'index' %}">
+    </form>
+{% endblock %}
