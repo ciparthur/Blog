@@ -13,6 +13,14 @@ def verificar_proprietario_pub(proprietario, usuario):
         raise Http404('Página não encontrada :(')
 
 
+def post(request, post_pk):
+    post = BlogPost.objects.get(pk=post_pk)
+    
+    contexto = {'post': post}
+    
+    return render(request, 'blogs/post.html', contexto)
+
+
 def index(request):
     posts = BlogPost.objects.all().order_by('-data_add')
 

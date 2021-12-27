@@ -10,13 +10,9 @@
     {% endif %}
 
     {% for post in posts %}
-        <h2>{{ post.titulo }}</h2>
-        <p> - {{ post.data_add }}</p>
-        <p>{{ post.texto|linebreaks }}</p>
-
-        {% if user.is_authenticated and user == post.proprietario %}
-            <p><a href="{% url 'editar_post' post.id %}">Editar publicação</a></p>
-        {% endif %}
+        <h2><a href="{% url 'post' post.pk %}">{{ post.titulo }}</a></h2>
+        <p> - {{ post.data_add }} - {{ post.proprietario }}</p>
+        <p>{{ post.texto|linebreaks }} <a href="{% url 'post' post.pk %}">Ver mais.</a></p>
     {% empty %}
         <p>Não há publicações no blog.</p>
     {% endfor %}
