@@ -12,7 +12,11 @@
     {% for post in posts %}
         <h2><a href="{% url 'post' post.pk %}">{{ post.titulo }}</a></h2>
         <p> - {{ post.data_add }} - {{ post.proprietario }}</p>
-        <p>{{ post.texto|linebreaks }} <a href="{% url 'post' post.pk %}">Ver mais.</a></p>
+        {% if post.texto|length >= 350 %}
+            <p>{{ post.texto|slice:"0:350" }}... <a href="{% url 'post' post.pk %}">Ver mais.</a></p>
+        {% else %}
+            <p>{{ post.texto }}</p>
+        {% endif %}
     {% empty %}
         <p>Não há publicações no blog.</p>
     {% endfor %}
