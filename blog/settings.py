@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blogs.apps.BlogsConfig',
     'usuarios.apps.UsuariosConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-BOOTSTRAP4 = {
-    'include_jquery': True
+# Configurações para django-bootstrap3
+
+BOOTSTRAP3 = {
+    'include_jquery': True,
 }

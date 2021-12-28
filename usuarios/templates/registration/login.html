@@ -1,18 +1,22 @@
 {% extends 'blogs/base.html' %}
 
+{% load bootstrap3 %}
+
 {% block title %}<title>Blog - Login</title>{% endblock %}
 
+{% block header %}
+    <h1>Faça login</h1>
+{% endblock %}
+
 {% block content %}
-    <h1>Login</h1>
-
-    {% if form.errors %}
-        <p>Usuário e senha inválidos. Tente novamente.</p>
-    {% endif %}
-
-    <form action="" method="POST">
+    <form action="" method="POST" class="form">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Login">
+        {% bootstrap_form form%}
+
+        {% buttons %}
+            <input type="submit" value="Login" class="btn btn-primary">
+        {% endbuttons %}
+
         <input type="hidden" name="next" value="{% url 'index' %}">
     </form>
 {% endblock %}

@@ -1,17 +1,25 @@
 {% extends 'blogs/base.html' %}
 
+{% load bootstrap3 %}
+
 {% block title %}<title>Blog - título da publicação</title>{% endblock %}
 
-{% block content %}
-    <h1>{{ post.titulo }}</h1>
+{% block header %}
+    <div class="jumbotron">
+        <h1>{{ post.titulo }}</h1>
+    </div>
+{% endblock %}
 
+{% block content %}
     {% if user.is_authenticated and user == post.proprietario %}
         <p><a href="{% url 'editar_post' post.pk %}">Editar publicação</a></p>
     {% endif %}
 
-    <p>{{ post.data_add }} - {{ post.proprietario }}</p>
+    <div class="panel">
+        <p><small>{{ post.data_add }} - Autor: {{ post.proprietario }}</small></p>
 
-    <p>
-        {{ post.texto | linebreaks }}
-    </p>
+        <p>
+            {{ post.texto | linebreaks }}
+        </p>
+    </div>
 {% endblock %}

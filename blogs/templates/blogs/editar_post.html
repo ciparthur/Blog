@@ -1,13 +1,19 @@
 {% extends 'blogs/base.html' %}
 
+{% load bootstrap3 %}
+
 {% block title %}<title>Blog - Editar post</title>{% endblock %}
 
-{% block content %}
+{% block header %}    
     <h1>Editar publicação</h1>
+{% endblock %}
 
-    <form action="" method="POST">
+{% block content %}
+    <form action="" method="POST" class="form">
         {% csrf_token %}
-        {{ formulario.as_p }}
-        <input type="submit" value="Editar">
+        {% bootstrap_form formulario %}
+        {% buttons %}
+            <input type="submit" value="Editar" class="btn btn-primary">
+        {% endbuttons %}
     </form>
 {% endblock %}

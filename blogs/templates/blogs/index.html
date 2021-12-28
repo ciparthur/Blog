@@ -2,21 +2,35 @@
 
 {% block title %}<title>Blog - Página inicial</title>{% endblock %}
 
+{% block header %}
+    <div class="jumbotron">
+        <h1>Página principal do blog</h1>
+    </div>
+{% endblock %}
+
 {% block content %}
-    <h1>Blog</h1>
-    <hr>
     {% if user.is_authenticated %}
         <p><a href="{% url 'novo_post' %}">Novo post</a></p>
     {% endif %}
 
     {% for post in posts %}
-        <h2><a href="{% url 'post' post.pk %}">{{ post.titulo }}</a></h2>
-        <p> - {{ post.data_add }} - {{ post.proprietario }}</p>
-        {% if post.texto|length >= 350 %}
-            <p>{{ post.texto|slice:"0:350" }}... <a href="{% url 'post' post.pk %}">Ver mais.</a></p>
-        {% else %}
-            <p>{{ post.texto }}</p>
-        {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>
+                    <a href="{% url 'post' post.pk %}">{{ post.titulo }}</a>
+                </h2>
+                
+                <p><small> {{ post.data_add }} - Autor: {{ post.proprietario }}</small></p>
+            </div>
+
+            <div class="panel-body">
+                {% if post.texto|length >= 500 %}
+                    <p>{{ post.texto|slice:"0:500" }}... <a href="{% url 'post' post.pk %}">Ver mais.</a></p>
+                {% else %}
+                    <p>{{ post.texto }}</p>
+                {% endif %}
+            </div>
+        </div>
     {% empty %}
         <p>Não há publicações no blog.</p>
     {% endfor %}
