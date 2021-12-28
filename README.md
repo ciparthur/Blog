@@ -1,14 +1,25 @@
 # Blog
 Um blog simples
 
-É possível adicionar e editar publicações.
+É possível se cadastrar para adicionar e editar a suas publicações, além de poder ver as publicações dos outros usuários.
+
+Link: _Em breve_
 
 ## Imagens
 __Página inicial__
-![Página incial](./img/index.png)
+![PáginaIncial](./img/index.png)
 
-__Página de criação de publicações__
-![Página de criação de publicações](./img/criar_post.png)
+__Página da publicação__
+![PáginaPost](./img/post.png)
 
-__Página de edição de publicações__
-![Página de edição de publicações](./img/editar_post.png)
+__Página para criação de publicações__
+![PáginaDeCriaçãoDePublicações](./img/criar_post.png)
+
+__Página para edição de publicações__
+![PáginaDeEdiçãoDePublicações](./img/editar_post.png)
+
+__Página de login__
+![PáginaLogin](./img/login.png)
+
+__Página de cadastro__
+![PáginaCadastro](./img/cadastro.png)
