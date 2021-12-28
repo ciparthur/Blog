@@ -15,9 +15,9 @@ def verificar_proprietario_pub(proprietario, usuario):
 
 def post(request, post_pk):
     post = BlogPost.objects.get(pk=post_pk)
-    
+
     contexto = {'post': post}
-    
+
     return render(request, 'blogs/post.html', contexto)
 
 
